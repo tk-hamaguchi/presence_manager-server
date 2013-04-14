@@ -12,7 +12,7 @@ group :assets do
   gem 'coffee-rails', '~> 4.0.0.beta1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', platforms: :ruby
+  gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -26,13 +26,26 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano', group: :development
+gem 'capistrano', group: :development
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
+
+group :test do
+  gem 'spring'
+  gem 'rb-inotify', '~> 0.9'
+  gem 'rspec-rails'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
+  gem 'factory_girl_rails'
+ 
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+end
