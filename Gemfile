@@ -1,7 +1,16 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
+
+ruby '1.9.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0.beta1'
+gem 'rails', '4.0.0.beta1', github: 'rails/rails'
+gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
+gem 'journey', github: 'rails/journey'
+gem 'arel', github: 'rails/arel'
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+#gem 'rails', '4.0.0.beta1'
 
 
 gem 'devise', git:'git://github.com/plataformatec/devise.git', branch:'rails4'
