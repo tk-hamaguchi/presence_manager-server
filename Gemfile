@@ -27,9 +27,6 @@ end
 
 gem 'jquery-rails'
 
-gem 'omniauth-twitter'
-gem 'twitter'
-
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -62,3 +59,4 @@ group :test do
   gem 'guard-rspec'
   gem 'guard-cucumber'
 end
+gem 'heroku'
