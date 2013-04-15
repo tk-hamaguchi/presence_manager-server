@@ -3,6 +3,13 @@ PresenceManager::Application.routes.draw do
 
   namespace :api do
   end
+
+  resources :venues, only:[:index] do
+    resources :seats, only:[:index]
+  end
+  resources :seminars, only:[:index,:show] do
+    get 'attend', on: :collection
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

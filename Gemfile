@@ -20,9 +20,16 @@ group :assets do
   gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem "twitter-bootstrap-rails"
+  gem "less-rails"
+  
 end
 
 gem 'jquery-rails'
+
+gem 'omniauth-twitter'
+gem 'twitter'
+
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -49,6 +56,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
   gem 'factory_girl_rails'
+  gem 'faker'
  
   gem 'guard'
   gem 'guard-rspec'
