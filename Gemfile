@@ -3,6 +3,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
 
+
+gem 'devise', git:'git://github.com/plataformatec/devise.git', branch:'rails4'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
 gem 'pg'
 
 # Gems used only for assets and not required
