@@ -1,12 +1,12 @@
 GIT
   remote: git://github.com/bmabey/database_cleaner.git
-  revision: 7c3fadd6f6cd27935b31fadb9875df711da34d07
+  revision: 20136e8987c222013d96e07c27d1230d2bbebd61
   specs:
     database_cleaner (0.9.1)
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: 8ec89bf6598389a0a37cb50a45b4c4f3ade6b8ef
+  revision: c6189696772925ae0c608fdd8d535f735e8e114e
   branch: rails4
   specs:
     devise (2.2.3)
@@ -15,8 +15,27 @@ GIT
       railties (~> 4.0.0.beta)
       warden (~> 1.2.1)
 
-GEM
-  remote: https://rubygems.org/
+GIT
+  remote: git://github.com/rails/activerecord-deprecated_finders.git
+  revision: 5ed930cfb6bbfa71284d3e81b3bde8dbf78d8093
+  specs:
+    activerecord-deprecated_finders (1.0.1)
+
+GIT
+  remote: git://github.com/rails/arel.git
+  revision: 3ef63ac5366000b232ca5fe0848de9db9a3c1f9a
+  specs:
+    arel (4.0.0.20130418133826)
+
+GIT
+  remote: git://github.com/rails/journey.git
+  revision: f0938d664286dc0b47f13092fa5d04a9225038d4
+  specs:
+    journey (2.0.0.20120723141804)
+
+GIT
+  remote: git://github.com/rails/rails.git
+  revision: a489bfe48bc0fbbb50a472bc66bd42d408c73fcb
   specs:
     actionmailer (4.0.0.beta1)
       actionpack (= 4.0.0.beta1)
@@ -32,19 +51,34 @@ GEM
       builder (~> 3.1.0)
     activerecord (4.0.0.beta1)
       activemodel (= 4.0.0.beta1)
-      activerecord-deprecated_finders (~> 0.0.3)
+      activerecord-deprecated_finders (~> 1.0.1)
       activesupport (= 4.0.0.beta1)
-      arel (~> 4.0.0.beta1)
-    activerecord-deprecated_finders (0.0.3)
+      arel (~> 4.0.0)
     activesupport (4.0.0.beta1)
-      i18n (~> 0.6.2)
+      i18n (~> 0.6, >= 0.6.4)
       minitest (~> 4.2)
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
-      tzinfo (~> 0.3.33)
+      tzinfo (~> 0.3.37)
+    rails (4.0.0.beta1)
+      actionmailer (= 4.0.0.beta1)
+      actionpack (= 4.0.0.beta1)
+      activerecord (= 4.0.0.beta1)
+      activesupport (= 4.0.0.beta1)
+      bundler (>= 1.3.0, < 2.0)
+      railties (= 4.0.0.beta1)
+      sprockets-rails (~> 2.0.0.rc4)
+    railties (4.0.0.beta1)
+      actionpack (= 4.0.0.beta1)
+      activesupport (= 4.0.0.beta1)
+      rake (>= 0.8.7)
+      thor (>= 0.18.1, < 2.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
     addressable (2.3.4)
-    arel (4.0.0.beta2)
-    atomic (1.1.7)
+    atomic (1.1.8)
     bcrypt-ruby (3.0.1)
     builder (3.1.4)
     capistrano (2.14.2)
@@ -60,7 +94,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.0.9)
-    coffee-rails (4.0.0.beta1)
+    coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
     coffee-script (2.2.0)
@@ -123,7 +157,7 @@ GEM
       rubyzip
     heroku-api (0.3.9)
       excon (~> 0.20.1)
-    highline (1.6.16)
+    highline (1.6.18)
     hike (1.2.2)
     httpauth (0.2.0)
     i18n (0.6.4)
@@ -132,7 +166,6 @@ GEM
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.7.7)
     jwt (0.1.8)
       multi_json (>= 1.5)
     kgio (2.8.0)
@@ -152,7 +185,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.22)
-    minitest (4.7.1)
+    minitest (4.7.2)
     multi_json (1.7.2)
     multipart-post (1.2.0)
     net-scp (1.1.0)
@@ -195,26 +228,10 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (4.0.0.beta1)
-      actionmailer (= 4.0.0.beta1)
-      actionpack (= 4.0.0.beta1)
-      activerecord (= 4.0.0.beta1)
-      activesupport (= 4.0.0.beta1)
-      bundler (>= 1.3.0, < 2.0)
-      railties (= 4.0.0.beta1)
-      sprockets-rails (~> 2.0.0.rc3)
-    railties (4.0.0.beta1)
-      actionpack (= 4.0.0.beta1)
-      activesupport (= 4.0.0.beta1)
-      rake (>= 0.8.7)
-      rdoc (~> 3.4)
-      thor (>= 0.17.0, < 2.0)
     raindrops (0.10.0)
     rake (10.0.4)
     rb-inotify (0.9.0)
       ffi (>= 0.5.0)
-    rdoc (3.12.2)
-      json (~> 1.4)
     ref (1.0.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
@@ -235,7 +252,7 @@ GEM
       rspec-mocks (~> 2.13.0)
     rubyzip (0.9.9)
     sass (3.2.7)
-    sass-rails (4.0.0.beta1)
+    sass-rails (4.0.0.rc1)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0.rc0)
@@ -247,7 +264,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.0.0.rc3)
+    sprockets-rails (2.0.0.rc4)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
@@ -284,6 +301,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-deprecated_finders!
+  arel!
   bcrypt-ruby (~> 3.0.0)
   capistrano
   coffee-rails (~> 4.0.0.beta1)
@@ -298,12 +317,13 @@ DEPENDENCIES
   guard-rspec
   heroku
   jbuilder (~> 1.0.1)
+  journey!
   jquery-rails
   less-rails
   omniauth-facebook
   omniauth-twitter
   pg
-  rails (= 4.0.0.beta1)
+  rails (= 4.0.0.beta1)!
   rb-inotify (~> 0.9)
   rspec-rails
   sass-rails (~> 4.0.0.beta1)
