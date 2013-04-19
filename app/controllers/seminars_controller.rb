@@ -15,12 +15,14 @@ class SeminarsController < PageController
     unless @seminar = @tag.seat.venue.seminars.where('opened_at <= ? and closed_at >= ?', Time.now, Time.now).first
 	    raise "Unknown seminor"
     end
-    session[:seminar_id] = @seminar.id
+    session[:code]     = params[:code]
+    session[:sequence] = params[:sequence]
     return redirect_to new_user_session_path unless user_signed_in?
     @seminar.users << current_user
     @seminar.users.uniq!
     @seminar.save!
-    session[:seminar_id] = nil
+    session[:code]     = nil
+    session[:sequence] = nil
     redirect_to seminar_path(@seminar)
   end
 end
