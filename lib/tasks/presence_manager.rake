@@ -6,7 +6,7 @@ namespace :presence_manager do
     task demo_data: %w(db:drop db:create db:migrate) do
       require File.expand_path("../../../config/environment", __FILE__)
       require 'factory_girl_rails'
-      user = FactoryGirl.create(:user, email:'testuser@localhost.localdomain',password:'testpass')
+      user = FactoryGirl.create(:user, email:'testuser@localhost.localdomain',password:'testpass',authentication_token:'59f2e1951839ca4a3749f9dd9816f4bbdc9b06c0')
       FactoryGirl.create_list(:venue,10).each do |venue|
         FactoryGirl.create_list(:seat,30, venue:venue).each do |seat|
           FactoryGirl.create(:nfc_tag,seat: seat)
