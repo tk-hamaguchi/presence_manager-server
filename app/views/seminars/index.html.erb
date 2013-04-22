@@ -1,0 +1,13 @@
+<table class="table table-striped">
+<% @seminars.each do |seminars| %>
+	<tr><td>
+<h2><%= link_to seminars.name, seminar_path(seminars) %></h2>
+<%= link_to seminars.url, seminars.url %>
+<p><%= seminars.description %></p>
+<table class="table table-bordered">
+<tr><th>開講時間</th><td><%= seminars.opened_at.strftime("%m/%d %H:%M") %>〜<%= seminars.closed_at.strftime("%m/%d %H:%M") %></td></tr>
+<tr><th>出席受付時間</th><td><%= seminars.started_at.strftime("%m/%d %H:%M") %>〜<%= seminars.ended_at.strftime("%m/%d %H:%M") %></td></tr>
+</table>
+</td></tr>
+<% end %>
+</table>

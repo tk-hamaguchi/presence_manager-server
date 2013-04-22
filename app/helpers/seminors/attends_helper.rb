@@ -1,0 +1,2 @@
+module Seminors::AttendsHelper
+end

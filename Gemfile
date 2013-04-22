@@ -1,4 +1,13 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
+
+#ruby '1.9.3'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+#gem 'rails', '4.0.0.beta1', github: 'rails/rails'
+#gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
+#gem 'journey', github: 'rails/journey'
+#gem 'arel', github: 'rails/arel'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
@@ -20,9 +29,13 @@ group :assets do
   gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem "twitter-bootstrap-rails"
+  gem "less-rails"
+  
 end
 
 gem 'jquery-rails'
+
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -49,8 +62,10 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
   gem 'factory_girl_rails'
+  gem 'faker'
  
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-cucumber'
 end
+gem 'heroku'

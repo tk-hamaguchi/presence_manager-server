@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130414084653) do
+ActiveRecord::Schema.define(version: 20130415032634) do
+
+  create_table "attends", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "seminar_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "nfc_tags", force: true do |t|
     t.string   "name"
@@ -27,6 +34,19 @@ ActiveRecord::Schema.define(version: 20130414084653) do
     t.integer  "venue_id"
     t.integer  "x"
     t.integer  "y"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seminars", force: true do |t|
+    t.string   "name"
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.datetime "opened_at"
+    t.datetime "closed_at"
+    t.integer  "venue_id"
+    t.text     "description"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,6 +79,11 @@ ActiveRecord::Schema.define(version: 20130414084653) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+
+  create_table "users_venues", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "venue_id"
+  end
 
   create_table "venues", force: true do |t|
     t.string   "name"
