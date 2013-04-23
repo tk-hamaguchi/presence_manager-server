@@ -1,0 +1,2 @@
+﻿TWITTER_KEY = "9dn0UzehaMc3IB5K2dMEJQ"
+TWITTER_SECRET = "Dfl4ItCrwXlREYpjj2Kp9Xj9iwSveXqqwD8iqjqBhs"
