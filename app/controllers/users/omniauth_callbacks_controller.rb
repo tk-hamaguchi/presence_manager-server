@@ -1,5 +1,5 @@
 ﻿class Users::OmniauthCallbacksController < ApplicationController
-  CLIENT_SCHEME = "com.dennou.pm"
+  CLIENT_SCHEME = "com.dennou.pman"
 
   def twitter
     auth = request.env['omniauth.auth']
@@ -8,7 +8,7 @@
 
     #アプリからのアクセスなら
     if request.env['HTTP_USER_AGENT'].include?('PmClient') then
-      return redirect_to "#{CLIENT_SCHEME}://local/auth?token=#{@user.authentication_token}"
+      return redirect_to "#{CLIENT_SCHEME}://local/auth?token=#{@user.authentication_token}&user=#{URI.encode(@user.email)}";
     end
 
     sign_in @user
