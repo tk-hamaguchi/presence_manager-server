@@ -2,6 +2,8 @@
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   namespace :api do
+    resources :seats, only:[:index]
+    resources :venues, only:[:index]
   end
 
   resources :venues, only:[:index] do
@@ -15,9 +17,6 @@
 
   # You can have the root of your site routed with "root"
   root to: 'seminars#index'
-
-  #omniauth
-  #get '/users/auth/:provider/callback', to: 'sessions#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
