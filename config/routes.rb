@@ -1,5 +1,5 @@
-PresenceManager::Application.routes.draw do
-  devise_for :users
+﻿PresenceManager::Application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   namespace :api do
   end
@@ -15,6 +15,9 @@ PresenceManager::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root to: 'seminars#index'
+
+  #omniauth
+  #get '/users/auth/:provider/callback', to: 'sessions#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
