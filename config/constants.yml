@@ -1,0 +1,18 @@
+﻿default: &defaults
+  nfc:
+    sign_logic: sha1
+    secret: abc268zzzwwww990%&$S
+  auth:
+    twitter:
+      key: 9dn0UzehaMc3IB5K2dMEJQ
+      secret: Dfl4ItCrwXlREYpjj2Kp9Xj9iwSveXqqwD8iqjqBhs
+    
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
