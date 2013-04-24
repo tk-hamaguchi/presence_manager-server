@@ -6,7 +6,7 @@
     seats = venue.seats.includes(:nfc_tag).load
     render :json=>{
        :venue=>{:id=>venue.id},
-       :seat=>seats.map{|p| {:id=>p.id, :sequence=>p.nfc_tag.sequence}}}
+       :seat=>seats.map{|p| {:id=>p.id, :sequence=>p.nfc_tag.sequence, :sign=>p.sign}}}
   rescue=>e
     logger.debug e.to_s
     render :status=>500, :json=>{:error=>e.to_s}

@@ -2,7 +2,7 @@
   before_filter :check_token
   
   def check_token
-    token = request.headers['Authorization'].split(" ")[1] || params[:token]
+    token = params[:token] || request.headers['Authorization'].split(" ")[1]
     user = User.find_by_authentication_token(token)
     raise "unknown user" if user.nil?
     sign_in user
