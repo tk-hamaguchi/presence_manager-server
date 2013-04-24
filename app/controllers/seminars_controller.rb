@@ -8,9 +8,9 @@ class SeminarsController < PageController
   end
   
   def attend
-    unless @tag =  NfcTag.find_by!(code:params[:code], sequence:params[:sequence])
-	    raise "Tag Not Find!!"
-    end
+    @tag =  NfcTag.find(params[:t])
+	raise "Tag Not Find!!" if @tag.nil?
+	raise "signature mismatch" if @tag.sign != params[:s] 
 
     unless @seminar = @tag.seat.venue.seminars.where('opened_at <= ? and closed_at >= ?', Time.now, Time.now).first
 	    raise "Unknown seminor"
