@@ -55,6 +55,9 @@ gem 'capistrano', group: :development
 # To use debugger
 gem 'debugger'
 
+#Setting
+gem 'settingslogic'
+
 group :test do
   gem 'spring'
   gem 'rb-inotify', '~> 0.9'
