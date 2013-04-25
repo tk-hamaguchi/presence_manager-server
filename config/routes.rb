@@ -4,6 +4,12 @@
   namespace :api do
     resources :seats, only:[:index]
     resources :venues, only:[:index]
+    resources :seminars, only:[] do
+      collection do
+        post 'attend'
+        get 'detail'
+      end
+    end
   end
 
   resources :venues, only:[:index] do
