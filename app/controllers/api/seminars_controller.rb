@@ -1,6 +1,6 @@
-class Api::SeminarsController < ApplicationController
+ï»¿class Api::SeminarsController < ApiController
 
-  #ƒZƒ~ƒi[î•ñæ“¾
+  #ã‚»ãƒŸãƒŠãƒ¼æƒ…å ±å–å¾—
   #params nfc_tag_id,sign
   def detail
     get_seminar
@@ -10,7 +10,7 @@ class Api::SeminarsController < ApplicationController
       :seminar=>{
         name: @seminar.name,
         started_at: @seminar.started_at,
-        endted_at: @seminar.ended_at,
+        ended_at: @seminar.ended_at,
         description: @seminar.description,
         url: @seminar.url
       },
@@ -27,25 +27,27 @@ class Api::SeminarsController < ApplicationController
     return render :status=>500, :json=>{:error=>"invalid tag"}
   end
 
-  #oÈˆ—
+  #å‡ºå¸­å‡¦ç†
   #params nfc_tag,secret,sign
   def attend
-    
+    get_seminar
+    return render :status=>404, :json=>{:error=>"no seminar"} if @seminar.nil?
+    @seminar.users << current_user unless @seminar.users.include? current_user
+    return render :status=>200, :nothing=>true
   end
   
   private
   def get_seminar
-    @tag =  NfcTag.find(params[:nfc_tag])
-	raise "Tag Not Find!!" if @tag.nil?
-	raise "signature mismatch" if @tag.sign != params[:sign]
-	
-	@seat = @tag.seat
-	@venue = @tag.seat.venue
-	now = DateTime.current
-	#opened_at,closed_at‚ğg‚¤‚Æ—áŠO‚ªo‚éBŒ´ˆö•s–¾ start,end‚Å‘ã‘Ö
+    @tag =  NfcTag.find(params[:code])
+    raise "Tag Not Find!!" if @tag.nil?
+    raise "signature mismatch" if @tag.sign != params[:sign]
+
+    @seat = @tag.seat
+    @venue = @tag.seat.venue
+    now = DateTime.current
+    #opened_at,closed_atã‚’ä½¿ã†ã¨ä¾‹å¤–ãŒå‡ºã‚‹ã€‚åŸå› ä¸æ˜ start,endã§ä»£æ›¿
     unless @seminar = @venue.seminars.where('opened_at <= ? and closed_at >= ?', now, now).first
-      @seminar = Seminar.first
-	  return nil
+      return nil
     end
   end
 end
