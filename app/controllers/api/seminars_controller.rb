@@ -32,7 +32,11 @@
   def attend
     get_seminar
     return render :status=>404, :json=>{:error=>"no seminar"} if @seminar.nil?
-    @seminar.users << current_user unless @seminar.users.include? current_user
+    Seminar.transaction do
+      @seminar.users << current_user unless @seminar.users.include? current_user
+      @seminar.users.uniq!
+      @seminar.save!
+    end
     return render :status=>200, :nothing=>true
   end
   
@@ -45,9 +49,6 @@
     @seat = @tag.seat
     @venue = @tag.seat.venue
     now = DateTime.current
-    #opened_at,closed_atを使うと例外が出る。原因不明 start,endで代替
-    unless @seminar = @venue.seminars.where('opened_at <= ? and closed_at >= ?', now, now).first
-      return nil
-    end
+    @seminar = @venue.seminars.where('opened_at <= ? and closed_at > ?', now, now).first
   end
 end
