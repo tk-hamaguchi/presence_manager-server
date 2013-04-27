@@ -7,7 +7,7 @@
     render :json=>{
        :venue=>{:id=>venue.id},
        :nfc_tag=>seats.map{|p| {
-         :id=>p.nfc_tag.id, :name=>p.name, :sequence=>p.nfc_tag.sequence, :sign=>p.nfc_tag.sign}}}
+         :code=>p.nfc_tag.id, :name=>p.name, :secret=>p.nfc_tag.sequence, :sign=>p.nfc_tag.sign}}}
   rescue=>e
     logger.debug e.to_s
     render :status=>500, :json=>{:error=>e.to_s}

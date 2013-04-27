@@ -1,5 +1,6 @@
 ﻿PresenceManager::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get  '/users/auth/:action/', :to => 'users/omniauth_callbacks#action', :as => 'omniauth_authorize'
 
   namespace :api do
     resources :seats, only:[:index]
