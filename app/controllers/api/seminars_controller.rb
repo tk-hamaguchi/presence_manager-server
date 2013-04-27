@@ -32,12 +32,29 @@
   def attend
     get_seminar
     return render :status=>404, :json=>{:error=>"no seminar"} if @seminar.nil?
+
     Seminar.transaction do
       @seminar.users << current_user unless @seminar.users.include? current_user
       @seminar.users.uniq!
       @seminar.save!
     end
-    return render :status=>200, :nothing=>true
+
+    return render :json=>{
+      :seminar=>{
+        id: @seminar.id,
+        name: @seminar.name,
+        started_at: @seminar.started_at,
+        ended_at: @seminar.ended_at,
+        description: @seminar.description,
+        url: @seminar.url
+      },
+      :venue=>{
+        name: @venue.name
+      },
+      :seat=>{
+        name: @seat.name
+      }
+    }
   end
   
   private
