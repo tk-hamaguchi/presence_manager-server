@@ -18,6 +18,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
 gem 'pg'
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer', platforms: :ruby
+gem "less-rails"
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,11 +30,8 @@ group :assets do
   gem 'coffee-rails', '~> 4.0.0.beta1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem "twitter-bootstrap-rails"
-  gem "less-rails"
   
 end
 
