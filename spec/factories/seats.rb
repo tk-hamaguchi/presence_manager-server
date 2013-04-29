@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "Seat No.#{n}" }
     sequence(:x) { |n| n }
     sequence(:y) { |n| (n/10).to_i + 1 }
-    venue
+    nfc_tag
   end
 
 end
