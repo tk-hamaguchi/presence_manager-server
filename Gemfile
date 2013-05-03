@@ -9,7 +9,13 @@ gem 'devise', git:'git://github.com/plataformatec/devise.git', branch:'rails4'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
-gem 'pg'
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem 'sqlite3'
+end
+
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer', platforms: :ruby
@@ -17,8 +23,8 @@ gem "less-rails"
 
 
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
+  gem 'sass-rails',   '~> 4.0.0.rc1'
+  gem 'coffee-rails', '~> 4.0.0.rc1'
   gem 'uglifier', '>= 1.0.3'
 end
 
