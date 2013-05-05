@@ -65,7 +65,7 @@ group :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
-  gem 'factory_girl_rails'
+  #gem 'factory_girl_rails'
   gem 'faker'
  
   gem 'guard'
@@ -73,3 +73,6 @@ group :test do
   gem 'guard-cucumber'
 end
 #gem 'heroku'
+
+gem 'factory_girl'
+
