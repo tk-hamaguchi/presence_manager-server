@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20130415032634) do
   create_table "seats", force: true do |t|
     t.string   "name"
     t.integer  "venue_id"
+    t.integer  "number"
     t.integer  "x"
     t.integer  "y"
     t.datetime "created_at"
@@ -87,6 +88,7 @@ ActiveRecord::Schema.define(version: 20130415032634) do
 
   create_table "venues", force: true do |t|
     t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

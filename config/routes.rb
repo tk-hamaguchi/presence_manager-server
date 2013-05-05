@@ -13,7 +13,7 @@
     end
   end
 
-  resources :venues, only:[:index] do
+  resources :venues, only:[:index, :new, :create, :edit, :update] do
     resources :seats, only:[:index]
   end
   resources :seminars, only:[:index,:show] do

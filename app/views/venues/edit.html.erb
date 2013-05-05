@@ -1,0 +1,24 @@
+<%
+#params :id
+venue = Venue.find(params[:id])
+seats = venue.seats
+%>
+<h1>Venues#edit</h1>
+
+<h2>講義室</h2>
+<%= form_for venue, :url=>venue_path(venue), :method=>:put do |f| %>
+  <dl>
+    <dt><%= f.label :name%></dt>
+    <dd><%= f.text_field :name %></dd>
+    <dt><%= f.label :description %></dt>
+    <dd><%= f.text_field :description %></dd>
+    <%= f.submit %>
+  </dl>
+<%  end %>
+
+<h2>座席</h2>
+<ul>
+<% seats.each do |seat| %>
+  <li><%= seat.name %></li>
+<%  end %>
+</ul>

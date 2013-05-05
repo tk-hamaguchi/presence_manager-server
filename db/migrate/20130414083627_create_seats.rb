@@ -3,6 +3,7 @@ class CreateSeats < ActiveRecord::Migration
     create_table :seats do |t|
       t.string :name
       t.integer :venue_id
+      t.integer :number
       t.integer :x
       t.integer :y
 
