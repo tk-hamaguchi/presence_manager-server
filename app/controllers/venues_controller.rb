@@ -13,7 +13,8 @@
     Venue.transaction do
       @venue = Venue.new(venue_param)
       @seats_count.times do |n|
-        @venue.seats << Seat.new(:name=>"Seat:#{n+1}", :number=>n+1)
+        nfc_tag = NfcTag.new(:sequence=>"%08X"%rand(0xFFFFFF))
+        @venue.seats << Seat.new(:name=>"Seat:#{n+1}", :number=>n+1, :nfc_tag=>nfc_tag)
       end
       @venue.save!
       current_user.venues << @venue
