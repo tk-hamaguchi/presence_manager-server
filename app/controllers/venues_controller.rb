@@ -1,4 +1,6 @@
-class VenuesController < PageController
+﻿class VenuesController < PageController
+  before_filter :ensure_sign_in
+
   def index
     @venues = current_user.venues
   end

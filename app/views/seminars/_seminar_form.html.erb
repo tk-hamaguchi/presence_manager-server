@@ -1,0 +1,22 @@
+<%
+#param @seminar //新規開催するセミナー
+#param @venues //選択可能な部屋
+now = DateTime.current
+%>
+<%= form_for seminar, :url=>seminars_path,:method=>:post do |f| %>
+  <dl>
+  <dt><%= f.label :name %><dt>
+  <dd><%= f.text_field :name %><dd>
+  <dt><%= f.label :venue %>
+  <dd><%= f.select :venue_id, venues.map{|v| [v.name, v.id]} %></dd>
+  <dt><%= f.label :opened_at %></dt>
+  <dd><%= datetime_select :seminar, :opened_at, :use_month_numbers=>true %></dd>
+  <dt><%= f.label :closed_at %></dt>
+  <dd><%= datetime_select :seminar, :closed_at,  :use_month_numbers=>true %></dd>
+  <dt><%= f.label :description %></dd>
+  <dd><%= f.text_area :description %></dd>
+  <dt><%= f.label :url %></dt>
+  <dd><%= f.text_field :url %></dd>
+  </dl>
+  <%= f.submit %>
+<%  end %>

@@ -1,4 +1,4 @@
-# encoding: UTF-8
+﻿# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -40,12 +40,13 @@ ActiveRecord::Schema.define(version: 20130415032634) do
   end
 
   create_table "seminars", force: true do |t|
+    t.integer  "venue_id"
+    t.integer  "user_id"
     t.string   "name"
     t.datetime "started_at"
     t.datetime "ended_at"
     t.datetime "opened_at"
     t.datetime "closed_at"
-    t.integer  "venue_id"
     t.text     "description"
     t.string   "url"
     t.datetime "created_at"
