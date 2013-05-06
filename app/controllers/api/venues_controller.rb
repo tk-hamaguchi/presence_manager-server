@@ -1,4 +1,4 @@
-class Api::VenuesController < ApiController
+﻿class Api::VenuesController < ApiController
   def index
     venues = current_user.venues.all
     render :json=>{:venue=>

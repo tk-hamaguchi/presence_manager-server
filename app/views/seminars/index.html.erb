@@ -1,3 +1,15 @@
+<%
+#param @seminars //開催中のセミナー一覧
+#param @seminar //新規開催するセミナー
+
+now = DateTime.current
+
+@seminars = Seminar.where('closed_at<?', now)
+seminar = @seminar||Seminar.new('opened_at'=>now, 'ended_at'=>now+1.hours)
+venues = current_user.venues
+
+%>
+<h2>開催中のセミナー</h2>
 <table class="table table-striped">
 <% @seminars.each do |seminars| %>
 	<tr><td>
@@ -5,9 +17,13 @@
 <%= link_to seminars.url, seminars.url %>
 <p><%= seminars.description %></p>
 <table class="table table-bordered">
-<tr><th>開講時間</th><td><%= seminars.opened_at.strftime("%m/%d %H:%M") %>〜<%= seminars.closed_at.strftime("%m/%d %H:%M") %></td></tr>
-<tr><th>出席受付時間</th><td><%= seminars.started_at.strftime("%m/%d %H:%M") %>〜<%= seminars.ended_at.strftime("%m/%d %H:%M") %></td></tr>
+<tr><th>開講時間</th><td><%= seminars.opened_at.strftime("%m/%d %H:%M") %>?<%= seminars.closed_at.strftime("%m/%d %H:%M") %></td></tr>
+<tr><th>出席受付時間</th><td><%= seminars.started_at.strftime("%m/%d %H:%M") %>?<%= seminars.ended_at.strftime("%m/%d %H:%M") %></td></tr>
 </table>
 </td></tr>
 <% end %>
 </table>
+
+<h2>セミナーの開催</h2>
+<%= render :partial=>"seminar_form", :locals=>{:seminar=>seminar, :venues=>venues} %>
+

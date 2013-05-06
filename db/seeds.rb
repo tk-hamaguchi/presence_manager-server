@@ -8,15 +8,6 @@
 require "factory_girl"
 FactoryGirl.find_definitions
 
-if Rails.env == "development"
-  User.delete_all
-  Venue.delete_all
-  Seat.delete_all
-  NfcTag.delete_all
-  
-  venue = FactoryGirl.create :venue_with_seats, seats_count:10
-  user = FactoryGirl.create :user
-  user.venues << venue
-end
-
-
+venue = FactoryGirl.create :venue_with_seats, seats_count:10
+user = FactoryGirl.create :user
+user.venues << venue

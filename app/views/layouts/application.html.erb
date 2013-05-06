@@ -79,6 +79,7 @@
       </div><!--/row-->
 
       <footer>
+        <%= link_to '[sign out]', destroy_user_session_path unless current_user.nil? %>
         <p>&copy; チーム出席 2013</p>
       </footer>
 

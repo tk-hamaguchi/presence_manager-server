@@ -2,7 +2,7 @@
 <%= link_to @seminar.url, @seminar.url %>
 <p><%= @seminar.description %></p>
 <table class="table table-bordered">
-<tr><th>開講時間</th><td><%= @seminar.opened_at.strftime("%m/%d %H:%M") %>〜<%= @seminar.closed_at.strftime("%m/%d %H:%M") %></td></tr>
-<tr><th>出席受付時間</th><td><%= @seminar.started_at.strftime("%m/%d %H:%M") %>〜<%= @seminar.ended_at.strftime("%m/%d %H:%M") %></td></tr>
+<tr><th>開講時間</th><td><%= @seminar.opened_at.strftime("%m/%d %H:%M") %>?<%= @seminar.closed_at.strftime("%m/%d %H:%M") %></td></tr>
+<tr><th>出席受付時間</th><td><%= @seminar.started_at.strftime("%m/%d %H:%M") %>?<%= @seminar.ended_at.strftime("%m/%d %H:%M") %></td></tr>
 <tr><th>出席者</th><td><%= @seminar.users.map(&:name).join(",") %></td></tr>
 </table>
