@@ -1,6 +1,6 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-#ruby '1.9.3'
+ruby '1.9.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '4.0.0.beta1', github: 'rails/rails'
@@ -14,7 +14,7 @@ gem 'rails', '4.0.0.beta1'
 
 
 gem 'devise', git:'git://github.com/plataformatec/devise.git', branch:'rails4'
-gem 'omniauth-facebook'
+#gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
 gem 'pg'
@@ -29,10 +29,10 @@ group :assets do
   gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem "twitter-bootstrap-rails"
   gem "less-rails"
-  
 end
+
+gem "twitter-bootstrap-rails"
 
 gem 'jquery-rails'
 
@@ -47,7 +47,8 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-gem 'unicorn'
+#gem 'unicorn'
+gem 'thin'
 
 # Deploy with Capistrano
 gem 'capistrano', group: :development
@@ -55,17 +56,23 @@ gem 'capistrano', group: :development
 # To use debugger
 gem 'debugger'
 
+#Setting
+gem 'settingslogic'
+
 group :test do
   gem 'spring'
   gem 'rb-inotify', '~> 0.9'
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
-  gem 'factory_girl_rails'
+  #gem 'factory_girl_rails'
   gem 'faker'
  
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-cucumber'
 end
-gem 'heroku'
+#gem 'heroku'
+
+gem 'factory_girl'
+
