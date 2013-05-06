@@ -1,6 +1,7 @@
 ﻿class User < ActiveRecord::Base
   has_and_belongs_to_many :venues
   before_create :ensure_authentication_token
+  has_many :seminars
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

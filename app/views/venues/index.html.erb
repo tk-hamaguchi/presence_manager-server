@@ -1,2 +1,13 @@
+<%
+#params :current_user
+@venues = current_user.venues
+%>
 <h1>Venues#index</h1>
 <p>Find me in app/views/venues/index.html.erb</p>
+<ul>
+ <% @venues.each do |venue|%>
+   <li><%= link_to venue.name, edit_venue_path(venue) %></li>
+ <% end %>
+</ul>
+ 
+<%= link_to "新規", new_venue_path %>

@@ -13,10 +13,10 @@
     end
   end
 
-  resources :venues, only:[:index] do
+  resources :venues, only:[:index, :new, :create, :edit, :update] do
     resources :seats, only:[:index]
   end
-  resources :seminars, only:[:index,:show] do
+  resources :seminars, only:[:index, :show, :create] do
     get 'attend', on: :collection
   end
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,6 +24,20 @@
 
   # You can have the root of your site routed with "root"
   root to: 'seminars#index'
+
+
+  puts "active_record reset"
+  begin
+    Seminar.connection.schema_cache.clear!
+    Seminar.reset_column_information
+    Seat.reset_column_information
+    Attend.reset_column_information
+    NfcTag.reset_column_information
+    #User.reset_column_information
+    Venue.reset_column_information
+  rescue =>e
+    puts e.to_s
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

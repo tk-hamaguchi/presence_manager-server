@@ -30,3 +30,4 @@ pickle-email-*.html
 config/database.yml
 *.swp
 db/schema_cache.dump 
+public/assets

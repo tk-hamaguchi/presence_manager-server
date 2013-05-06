@@ -1,0 +1,16 @@
+<%
+#params @venue:Venue, @seats_count:Integer
+
+ @venue = @venue|| Venue.new
+ @seats_count = @seats_count || 1
+%>
+<h1>Venues#new</h1>
+<p>Find me in app/views/venues/show.html.erb</p>
+<%= form_for @venue, :url=>venues_path, :method=>:post do |f|%>
+  <dl>
+  <dt><%= f.label :name%></dt>
+  <dd><%= f.text_field :name %></dd>
+  <dt>座席数</dt>
+  <dd><%= text_field_tag 'seats_count', @seats_count %></dd>
+  <%= f.submit %>
+<%  end %>
